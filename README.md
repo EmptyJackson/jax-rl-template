@@ -23,11 +23,11 @@ This template is designed to provide only core functionality, providing a solid 
 
 ## Setup
 
-### Running locally
+### Running locally (CPU)
 
-1. **Install Python packages** from `requirements-base.txt` and either `requirements-cpu.txt` (for CPU) or `requirements-gpu.txt` (for GPU) with:
+1. **Install Python packages** from `requirements-base.txt` and `requirements-cpu.txt` in `setup` with:
 ```
-pip install $(cat requirements-base.txt requirements-cpu.txt)
+cd setup && pip install $(cat requirements-base.txt requirements-cpu.txt)
 ```
 2. **Sign into WandB** to enable logging:
 ```
@@ -38,11 +38,11 @@ wandb login
 
 1. **Build the Docker container** with the provided script:
 ```
-cd docker && ./build.sh
+cd setup/docker && ./build.sh
 ```
-2. **Add your [WandB key](https://wandb.ai/authorize)** to the `docker` folder:
+2. **Add your [WandB key](https://wandb.ai/authorize)** to the `setup/docker` folder:
 ```
-echo <wandb_key> > docker/wandb_key
+echo <wandb_key> > setup/docker/wandb_key
 ```
 
 ### Automatic code formatting
