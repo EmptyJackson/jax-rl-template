@@ -35,10 +35,10 @@ def log_results(args, results):
         for step in range(rets.shape[1]):
             step_ret = None
             if step >= all_done_step:
-                return_list[step - all_done_step]
+                step_ret = return_list[step - all_done_step]
             wandb.log(
                 {
-                    "episode_return": step_ret,
+                    "return": step_ret,
                     "step": step,
                     **{k: v[:, step].mean() for k, v in results["loss"].items()},
                 }
