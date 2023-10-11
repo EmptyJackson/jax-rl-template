@@ -72,11 +72,11 @@ python train.py --help
 ### Training via Docker
 Launch training runs inside your built container with:
 ```
-./run_docker.sh <gpu_id> python train.py <arguments>
+./run_docker.sh <gpu_id> python3 train.py <arguments>
 ```
 For example, to train a DQN agent on the Asterix-MinAtar environment using GPU 3, run:
 ```
-./run_docker.sh 3 python train.py --agent dqn --env Asterix-MinAtar
+./run_docker.sh 3 python3 train.py --agent dqn --env Asterix-MinAtar
 ```
 
 ## Acknowledgements
