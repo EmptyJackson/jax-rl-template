@@ -78,7 +78,7 @@ def train_agents(args):
     # --- Run training for num_agents ---
     rng = jax.random.PRNGKey(args.seed)
     rng = jax.random.split(rng, args.num_agents)
-    results = jax.vmap(train_fn)(rng)
+    results = jax.jit(jax.vmap(train_fn))(rng)
     log_results(args, results)
 
 
