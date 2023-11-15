@@ -62,7 +62,7 @@ python train.py <arguments>
 ```
 For example, to train a PPO agent on the CartPole-v1 environment and log to WandB, run:
 ```
-python train.py --agent ppo --env CartPole-v1 --log --wandb_entity wandb_username --wandb_project project_name
+python train.py --agent ppo --env_name CartPole-v1 --log --wandb_entity wandb_username --wandb_project project_name
 ```
 To see all possible arguments, see `experiments/parse_args.py` or run:
 ```
@@ -76,7 +76,7 @@ Launch training runs inside your built container with:
 ```
 For example, to train a DQN agent on the Asterix-MinAtar environment using GPU 3, run:
 ```
-./run_docker.sh 3 python3 train.py --agent dqn --env Asterix-MinAtar
+./run_docker.sh 3 python3 train.py --agent dqn --env_name Asterix-MinAtar
 ```
 
 ## Acknowledgements
