@@ -6,7 +6,7 @@ def _linear_schedule(count, args):
     if args.agent == "ppo":
         frac = (
             1.0
-            - (count // (args.ppo_num_minibatches * args.ppo_update_epochs))
+            - (count // (args.num_minibatches * args.ppo_num_epochs))
             / args.num_train_steps
         )
     else:

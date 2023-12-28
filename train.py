@@ -53,11 +53,11 @@ def make_train(args):
                 new_last_obs,
                 rng,
             )
-            return runner_state, (loss, metric, traj_batch)
+            return runner_state, jax.tree_map(jnp.mean, (loss, metric))
 
         rng, _rng = jax.random.split(rng)
         runner_state = (train_state, aux_train_states, env_state, obsv, _rng)
-        runner_state, (loss, metric, traj_batch) = jax.lax.scan(
+        runner_state, (loss, metric) = jax.lax.scan(
             _train_step, runner_state, None, args.num_train_steps
         )
         ret = {
